@@ -1,6 +1,7 @@
+isOSReady=false
 // init cwifs
 cwifs.setup()
-// declare functions
+// declare functions/variables
 function exec(str){
     comm=str.split(" ")[0]
     if(str.split(" ").length>1){
@@ -36,6 +37,9 @@ cwifs.file.write("/bin/blue","()=>{return (argv)=>{str='';for(x in argv){x=argv[
 cwifs.file.write("/bin/pi","()=>{return (argv)=>{return Math.PI}}")
 cwifs.file.write("/bin/node",`()=>{return (argv)=>{results=[]; for(code in argv){code=argv[code]; results.push(eval(code)); }; return (results+[]).replaceAll(',',', ')}}`)
 cwifs.file.write("/bin/locals",'()=>{return (argv)=>{if(argv[0]=="get"){return eval(`window.localStorage.${argv[1]}`);}else if(argv[0]=="set"){eval(`window.localStorage.${argv[1]}=`+`"${argv[2]}"`); return argv[1] + " in local storage is set to `"+argv[2]+"`";}else if(argv[0]=="clear"){window.localStorage.clear(); return "Local storage cleared.";}}}')
+cwifs.file.write("/bin/run","()=>{return (argv)=>{ver=0;returns=[];macros=cwifs.file.read(argv[0]).split(` && `); if(macros.length>1){for(ver in macros){returns.push(exec(macros[ver]));};}else{returns.push(exec(macros[ver]))}; return (returns+[]).replaceAll(`,`,``)}}")
+cwifs.file.write("/bin/cat","()=>{return (argv)=>{return cwifs.file.read(`${argv[0]}`)}}")
+cwifs.file.write("/bin/clist","()=>{return (argv)=>{return cwifs.file.read(`/etc/clist`).replaceAll(`\n`,`<br>`)}}")
 // load libraries
 lib={
     colors:loadlib("colors")
@@ -46,5 +50,9 @@ cwifs.file.write("/home/.user","mcode11")
 isCustomMotd=true
 customMotd="This project is actually made for:<br>"+lib.colors.green("Hacking the")+" "+lib.colors.blue("Nintendo")+" "+lib.colors.red("Switch")
 cwifs.file.write("/home/"+cwifs.file.read("/home/.user")+"/.motd",(isCustomMotd+[])+"\n"+(customMotd))
-// other text files, take /etc/motd as an example.
+// scripts
+cwifs.file.write("test","echo a && cls && echo uname: && red false")
+// other text files, take /etc as an example.
 if (eval(cwifs.file.read("/home/"+cwifs.file.read("/home/.user")+"/.motd").split("\n")[0])){cwifs.file.write("/etc/motd",cwifs.file.read("/home/"+cwifs.file.read("/home/.user")+"/.motd").split("\n")[1])}else{cwifs.file.write("/etc/motd",lib.colors.red("Welcome to cwiOS!"))}
+cwifs.file.write("/etc/clist",lib.colors.green("<u>Command List:</u>")+"\necho, "+lib.colors.green("green")+", "+lib.colors.red("red")+", "+lib.colors.blue("blue")+",\npi, node, locals, run,\ncat, clist")
+isOSReady=true

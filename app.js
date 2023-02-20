@@ -8,6 +8,13 @@ function pageScroll() {
     term.scrollBy(0,100); // horizontal and vertical scroll increments
     scrolldelay = setTimeout(pageScroll,0); // scrolls every 100 milliseconds
 }
+term.clear=(isOnly)=>{
+    if(isOnly){
+        term.innerHTML=""+promptw
+    }else{
+        term.innerHTML=""
+    }
+}
 function shell() {
     term.innerHTML+=promptw
     cursor=2
@@ -15,21 +22,25 @@ function shell() {
         printable = !(e.key.length>1)
         console.log(e.key)
         if(e.key=="Enter"){
-            if (kpr!=="clear"){
-                if(kpr.split(" && ").length>1){
-                    term.innerHTML+="<br>"
-                    for(z in kpr.split(" && ")){
+            if(kpr.split(" && ").length>1){
+                term.innerHTML+="<br>"
+                for(z in kpr.split(" && ")){
+                    if(kpr.split(" && ")[z]!=="clear"){
                         term.innerHTML+=exec(kpr.split(" && ")[z])
                         term.innerHTML+=""
+                    }else{
+                        term.clear(false)
                     }
-                    term.innerHTML+="<br>"+promptw
-                }else{
+                }
+                term.innerHTML+="<br>"+promptw
+            }else{
+                if(kpr!=="clear"){
                     term.innerHTML+="<br>"
                     term.innerHTML+=exec(kpr)
                     term.innerHTML+="<br>"+promptw
+                }else{
+                    term.clear(true)
                 }
-            }else{
-                term.innerHTML=promptw
             }
             kpr=""
             cursor=2
@@ -49,4 +60,5 @@ function shell() {
     })
 }
 pageScroll()
+while(!isOSReady){}
 shell()
