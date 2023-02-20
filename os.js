@@ -1,4 +1,6 @@
+// init cwifs
 cwifs.setup()
+// declare functions
 function exec(str){
     comm=str.split(" ")[0]
     if(str.split(" ").length>1){
@@ -33,10 +35,13 @@ cwifs.file.write("/bin/red","()=>{return (argv)=>{str='';for(x in argv){x=argv[x
 cwifs.file.write("/bin/blue","()=>{return (argv)=>{str='';for(x in argv){x=argv[x];str+=x+' ';}; str=str.slice(0,-1);return lib.colors.blue(str)}}")
 cwifs.file.write("/bin/pi","()=>{return (argv)=>{return Math.PI}}")
 cwifs.file.write("/bin/node",`()=>{return (argv)=>{results=[]; for(code in argv){code=argv[code]; results.push(eval(code)); }; return (results+[]).replaceAll(',',', ')}}`)
-cwifs.file.write("/bin/lstorage",'()=>{return (argv)=>{if(argv[0]=="get"){return eval(`window.localStorage.${argv[1]}`);}else if(argv[0]=="set"){eval(`window.localStorage.${argv[1]}=`+`"${argv[2]}"`); return argv[1] + " in local storage is set to `"+argv[2]+"`";}else if(argv[0]=="clear"){window.localStorage.clear(); return "Local storage cleared.";}}}')
+cwifs.file.write("/bin/locals",'()=>{return (argv)=>{if(argv[0]=="get"){return eval(`window.localStorage.${argv[1]}`);}else if(argv[0]=="set"){eval(`window.localStorage.${argv[1]}=`+`"${argv[2]}"`); return argv[1] + " in local storage is set to `"+argv[2]+"`";}else if(argv[0]=="clear"){window.localStorage.clear(); return "Local storage cleared.";}}}')
 // load libraries
 lib={
     colors:loadlib("colors")
 }
+// declare userfs
+cwifs.file.write("/home/.user","guest")
+cwifs.file.write("/home/"+cwifs.file.read("/home/.user")+"/.motd","true\n"+lib.colors.red("Hello, "+cwifs.file.read("/home/.user")+"! Welcome to cwiOS!"))
 // other text files, take /etc/motd as an example.
-cwifs.file.write("/etc/motd",lib.colors.red("Welcome, dear cwiOS user!"))
+if (eval(cwifs.file.read("/home/"+cwifs.file.read("/home/.user")+"/.motd").split("\n")[0])){cwifs.file.write("/etc/motd",cwifs.file.read("/home/"+cwifs.file.read("/home/.user")+"/.motd").split("\n")[1])}else{cwifs.file.write("/etc/motd",lib.colors.red("Welcome to cwiOS!"))}
