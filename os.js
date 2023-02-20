@@ -5,17 +5,19 @@ function exec(str){
         str=(str.slice((str.split(" ")[0].length+1),-1)+str.slice(-1)).split(" ")
         str="["+(((str+[]).split(",").map(x => x='"'+x+'"'))+[])+"]" 
         try{
-            eres=eval(eval(cwifs.file.read('/bin/'+comm))())
+            eres=eval(`eval(cwifs.file.read('/bin/'+'${comm}'))()(${str})`)
             return eres
-        }catch{
+        }catch(e){
+            console.log(e)
             return (comm+": Command not found.")
         }
     }else{
         try{
             str="[]"
-            eres=eval(`eval(cwifs.file.read('/bin/'+${comm}))(${str})`)
+            eres=eval(`eval(cwifs.file.read('/bin/'+'${comm}'))()(${str})`)
             return eres
-        }catch{
+        }catch(e){
+            console.log(e)
             return (comm+": Command not found.")
         }
     }
