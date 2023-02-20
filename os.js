@@ -25,13 +25,13 @@ function exec(str){
 loadlib=(lib)=>{
     return eval('(eval(cwifs.file.read("/lib/"+lib+".js"))())')
 }
-// executables and libraries /lib and /bin as an example.
+// executables and libraries, take /lib and /bin as an example.
 cwifs.file.write("/lib/colors.js","()=>{return {green:(t)=>{return `<green>${t}</green>`}, blue:(t)=>{return `<blue>${t}</blue>`}, red:(t)=>{return `<red>${t}</red>`}}}")
 cwifs.file.write("/bin/echo","()=>{return (argv)=>{str='';for(x in argv){x=argv[x];str+=x+' ';}; str=str.slice(0,-1);return str}}")
 cwifs.file.write("","")
-// library load
+// library loading
 lib={
     colors:loadlib("colors")
 }
-// other text files /etc/motd as an example.
+// other text files, take /etc/motd as an example.
 cwifs.file.write("/etc/motd",lib.colors.red("Welcome to cwiOS!"))
