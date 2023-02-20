@@ -41,7 +41,10 @@ lib={
     colors:loadlib("colors")
 }
 // declare userfs
-cwifs.file.write("/home/.user","guest")
-cwifs.file.write("/home/"+cwifs.file.read("/home/.user")+"/.motd","true\n"+lib.colors.red("Hello, "+cwifs.file.read("/home/.user")+"! Welcome to cwiOS!"))
+cwifs.file.write("/home/.user","mcode11")
+// .motd
+isCustomMotd=true
+customMotd="This project is actually made for:<br>"+lib.colors.green("Hacking the")+" "+lib.colors.blue("Nintendo")+" "+lib.colors.red("Switch")
+cwifs.file.write("/home/"+cwifs.file.read("/home/.user")+"/.motd",(isCustomMotd+[])+"\n"+(customMotd))
 // other text files, take /etc/motd as an example.
 if (eval(cwifs.file.read("/home/"+cwifs.file.read("/home/.user")+"/.motd").split("\n")[0])){cwifs.file.write("/etc/motd",cwifs.file.read("/home/"+cwifs.file.read("/home/.user")+"/.motd").split("\n")[1])}else{cwifs.file.write("/etc/motd",lib.colors.red("Welcome to cwiOS!"))}
