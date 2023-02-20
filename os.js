@@ -51,7 +51,6 @@ isCustomMotd=true
 customMotd="This project is actually made for:<br>"+lib.colors.green("Hacking the")+" "+lib.colors.blue("Nintendo")+" "+lib.colors.red("Switch")
 cwifs.file.write("/home/"+cwifs.file.read("/home/.user")+"/.motd",(isCustomMotd+[])+"\n"+(customMotd))
 // scripts
-cwifs.file.write("test","echo a && cls && echo uname: && red false")
 // other text files, take /etc as an example.
 if (eval(cwifs.file.read("/home/"+cwifs.file.read("/home/.user")+"/.motd").split("\n")[0])){cwifs.file.write("/etc/motd",cwifs.file.read("/home/"+cwifs.file.read("/home/.user")+"/.motd").split("\n")[1])}else{cwifs.file.write("/etc/motd",lib.colors.red("Welcome to cwiOS!"))}
 cwifs.file.write("/etc/clist",lib.colors.green("<u>Command List:</u>")+"\necho, "+lib.colors.green("green")+", "+lib.colors.red("red")+", "+lib.colors.blue("blue")+",\npi, node, locals, run,\ncat, clist")
