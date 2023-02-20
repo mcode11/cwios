@@ -1,0 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
+textarea#terminal{
+    background: rgb(62, 59, 59);
+    color:antiquewhite;
+    letter-spacing: 1px!important;
+    font-family: "Space Mono",monospace;
+}
