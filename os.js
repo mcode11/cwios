@@ -33,4 +33,4 @@ lib={
     colors:loadlib("colors")
 }
 // other text files /etc/motd as an example.
-cwifs.file.write("/etc/motd",lib.colors.red("Welcome to WTerm!"))
+cwifs.file.write("/etc/motd",lib.colors.red("Welcome to cwiOS!"))
