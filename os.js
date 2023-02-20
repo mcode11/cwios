@@ -28,6 +28,7 @@ loadlib=(lib)=>{
 // executables and libraries /lib and /bin as an example.
 cwifs.file.write("/lib/colors.js","()=>{return {green:(t)=>{return `<green>${t}</green>`}, blue:(t)=>{return `<blue>${t}</blue>`}, red:(t)=>{return `<red>${t}</red>`}}}")
 cwifs.file.write("/bin/echo","()=>{return (argv)=>{str='';for(x in argv){x=argv[x];str+=x+' ';}; str=str.slice(0,-1);return str}}")
+cwifs.file.write("","")
 // library load
 lib={
     colors:loadlib("colors")
