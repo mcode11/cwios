@@ -6,6 +6,7 @@ div#terminal{
     font-family: "Space Mono",monospace;
     padding: 10px;
     margin: 0px;
+    font-size: 20px;
     min-width: 808px;
     min-height: 425px;
     max-width: 808px;
@@ -13,7 +14,7 @@ div#terminal{
     border-radius: 10px;
     border: 2px solid black;
     overflow: hidden;
-    
+    box-shadow: 10px 10px black;
 }
 body{
     background: rgb(62, 59, 59);
@@ -33,6 +34,9 @@ input#keyboardpop{
     padding: 0;
     border: none;
     outline: none;
+}
+#banner, #banner>strong{
+    font-size: xxx-large;
 }
 green{color:lightgreen;}
 blue{color:lightblue;}

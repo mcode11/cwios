@@ -5,7 +5,7 @@ term.innerHTML=cwifs.file.read("/etc/motd")+"<br>"
 promptw=lib.colors.blue("% ")
 cursor=0
 function pageScroll() {
-    term.scrollBy(0,50); // horizontal and vertical scroll increments
+    term.scrollBy(0,100); // horizontal and vertical scroll increments
     scrolldelay = setTimeout(pageScroll,0); // scrolls every 100 milliseconds
 }
 function shell() {
@@ -16,9 +16,18 @@ function shell() {
         console.log(e.key)
         if(e.key=="Enter"){
             if (kpr!=="clear"){
-                term.innerHTML+="<br>"
-                term.innerHTML+=exec(kpr)
-                term.innerHTML+="<br>"+promptw
+                if(kpr.split(" && ").length>1){
+                    term.innerHTML+="<br>"
+                    for(z in kpr.split(" && ")){
+                        term.innerHTML+=exec(kpr.split(" && ")[z])
+                        term.innerHTML+=""
+                    }
+                    term.innerHTML+="<br>"+promptw
+                }else{
+                    term.innerHTML+="<br>"
+                    term.innerHTML+=exec(kpr)
+                    term.innerHTML+="<br>"+promptw
+                }
             }else{
                 term.innerHTML=promptw
             }
