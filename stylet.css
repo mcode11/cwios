@@ -12,7 +12,7 @@ div#terminal{
     max-width: 100%;
     max-height: 100%;
     overflow: hidden;
-    padding-left: 10px;
+    padding: 10px;
 }
 body{
     background: rgb(62, 59, 70);
