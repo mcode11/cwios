@@ -50,7 +50,7 @@ lib={
 // declare userfs
 cwifs.file.write("/home/.user","mcode11")
 // .motd
-isCustomMotd=false
+isCustomMotd=true
 customMotd="This project is actually made for:<br>"+lib.colors.green("Hacking the")+" "+lib.colors.blue("Nintendo")+" "+lib.colors.red("Switch")
 cwifs.file.write("/home/"+cwifs.file.read("/home/.user")+"/.motd",(isCustomMotd+[])+"\n"+(customMotd))
 // scripts
