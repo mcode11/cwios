@@ -42,7 +42,6 @@ cwifs.file.write("/bin/cat","()=>{return (argv)=>{return cwifs.file.read(`${argv
 cwifs.file.write("/bin/clist","()=>{return (argv)=>{return cwifs.file.read(`/etc/clist`).replaceAll(`\n`,`<br>`)}}")
 cwifs.file.write("/bin/alert","()=>{return (argv)=>{alertstr=''; for (z in argv){z=argv[z]; alertstr+=z;}; alert(alertstr); return '';}}")
 cwifs.file.write("/bin/log","()=>{return (argv)=>{alertstr=''; for (z in argv){z=argv[z]; alertstr+=z;}; console.log(alertstr); return '';}}")
-cwifs.file.write("/bin/loadscreen","()=>{return (argv)=>{parent.window.location.href=`https://mcode11.github.io/cwideskenv`}}")
 // load libraries
 lib={
     colors:loadlib("colors")
