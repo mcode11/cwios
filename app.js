@@ -6,6 +6,7 @@ promptw=lib.colors.blue("% ")
 cursor=0
 function pageScroll() {
     term.scrollBy(0,100); // horizontal and vertical scroll increments
+    document.body.scrollBy(0,100);
     scrolldelay = setTimeout(pageScroll,0); // scrolls every 100 milliseconds
 }
 term.clear=(isOnly)=>{
