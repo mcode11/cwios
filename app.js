@@ -20,7 +20,6 @@ function shell() {
     cursor=2
     document.addEventListener("keydown",(e)=>{
         printable = !(e.key.length>1)
-        console.log(e.key)
         if(e.key=="Enter"){
             if(kpr.split(" && ").length>1){
                 term.innerHTML+="<br>"
