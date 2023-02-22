@@ -42,6 +42,7 @@ cwifs.file.write("/bin/cat","()=>{return (argv)=>{return cwifs.file.read(`${argv
 cwifs.file.write("/bin/clist","()=>{return (argv)=>{return cwifs.file.read(`/etc/clist`).replaceAll(`\n`,`<br>`)}}")
 cwifs.file.write("/bin/alert","()=>{return (argv)=>{alertstr=''; for (z in argv){z=argv[z]; alertstr+=z;}; alert(alertstr); return '';}}")
 cwifs.file.write("/bin/log","()=>{return (argv)=>{alertstr=''; for (z in argv){z=argv[z]; alertstr+=z;}; console.log(alertstr); return '';}}")
+cwifs.file.write("/bin/loadscreen","()=>{return (argv)=>{parent.window.location.href=`https://mcode11.github.io/cwideskenv`}}")
 // load libraries
 lib={
     colors:loadlib("colors")
@@ -49,11 +50,11 @@ lib={
 // declare userfs
 cwifs.file.write("/home/.user","mcode11")
 // .motd
-isCustomMotd=true
+isCustomMotd=false
 customMotd="This project is actually made for:<br>"+lib.colors.green("Hacking the")+" "+lib.colors.blue("Nintendo")+" "+lib.colors.red("Switch")
 cwifs.file.write("/home/"+cwifs.file.read("/home/.user")+"/.motd",(isCustomMotd+[])+"\n"+(customMotd))
 // scripts
 // other text files, take /etc as an example.
 if (eval(cwifs.file.read("/home/"+cwifs.file.read("/home/.user")+"/.motd").split("\n")[0])){cwifs.file.write("/etc/motd",cwifs.file.read("/home/"+cwifs.file.read("/home/.user")+"/.motd").split("\n")[1])}else{cwifs.file.write("/etc/motd",lib.colors.red("Welcome to cwiOS!"))}
-cwifs.file.write("/etc/clist",lib.colors.green("<u>Command List:</u>")+"\necho, "+lib.colors.green("green")+", "+lib.colors.red("red")+", "+lib.colors.blue("blue")+",\npi, node, locals, run,\ncat, clist,\nalert, log")
+cwifs.file.write("/etc/clist",lib.colors.green("<u>Command List:</u>")+"\necho, "+lib.colors.green("green")+", "+lib.colors.red("red")+", "+lib.colors.blue("blue")+",\npi, node, locals, run,\ncat, clist,\nalert, log\nloadscreen")
 isOSReady=true
