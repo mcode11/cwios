@@ -4,8 +4,6 @@ div#terminal{
     color:antiquewhite;
     letter-spacing: 2px;
     font-family: "Space Mono",monospace;
-    padding: 10px;
-    margin: 0px;
     font-size: 20px;
     width: 100%;
     height: 100%;
@@ -18,8 +16,6 @@ div#terminal{
 body{
     background: rgb(62, 59, 70);
     color:antiquewhite;
-    padding-top: 10px;
-    padding-left: 20px;
     margin: 0;
 }
 *{
