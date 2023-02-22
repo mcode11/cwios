@@ -40,6 +40,7 @@ cwifs.file.write("/bin/locals",'()=>{return (argv)=>{if(argv[0]=="get"){return e
 cwifs.file.write("/bin/run","()=>{return (argv)=>{ver=0;returns=[];macros=cwifs.file.read(argv[0]).split(` && `); if(macros.length>1){for(ver in macros){returns.push(exec(macros[ver]));};}else{returns.push(exec(macros[ver]))}; return (returns+[]).replaceAll(`,`,``)}}")
 cwifs.file.write("/bin/cat","()=>{return (argv)=>{return cwifs.file.read(`${argv[0]}`)}}")
 cwifs.file.write("/bin/clist","()=>{return (argv)=>{return cwifs.file.read(`/etc/clist`).replaceAll(`\n`,`<br>`)}}")
+cwifs.file.write("/bin/alert","()=>{return (argv)=>{alertstr=''; for (z in argv){z=argv[z]; alertstr+=z;}; alert(alertstr); return '';}}")
 // load libraries
 lib={
     colors:loadlib("colors")
