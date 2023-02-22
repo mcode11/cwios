@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
 div#terminal{
-    background: rgb(62, 59, 70);
+    background: rgb(62, 59, 59);
     color:antiquewhite;
     letter-spacing: 2px;
     font-family: "Space Mono",monospace;
@@ -11,10 +11,7 @@ div#terminal{
     min-height: 425px;
     max-width: 808px;
     max-height: 425px;
-    border-radius: 10px;
-    border: 2px solid black;
     overflow: hidden;
-    box-shadow: 10px 10px black;
 }
 body{
     background: rgb(62, 59, 59);
