@@ -7,10 +7,10 @@ div#terminal{
     padding: 10px;
     margin: 0px;
     font-size: 20px;
-    min-width: 808px;
-    min-height: 425px;
-    max-width: 808px;
-    max-height: 425px;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 1920px;
+    max-height: 1080px;
     overflow: hidden;
 }
 body{
