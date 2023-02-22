@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
+div#terminal{
+    background: rgb(62, 59, 70);
+    color:antiquewhite;
+    letter-spacing: 2px;
+    font-family: "Space Mono",monospace;
+    padding: 10px;
+    margin: 0px;
+    font-size: 20px;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+}
+body{
+    background: rgb(62, 59, 59);
+    color:antiquewhite;
+    padding-top: 10px;
+    padding-left: 20px;
+    margin: 0;
+}
+*{
+    font-family: "Space Mono",monospace;
+}
+input#keyboardpop{
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+#banner, #banner>strong{
+    font-size: xxx-large;
+}
+green{color:lightgreen;}
+blue{color:lightblue;}
+red{color:lightcoral;}
