@@ -41,6 +41,7 @@ cwifs.file.write("/bin/run","()=>{return (argv)=>{ver=0;returns=[];macros=cwifs.
 cwifs.file.write("/bin/cat","()=>{return (argv)=>{return cwifs.file.read(`${argv[0]}`)}}")
 cwifs.file.write("/bin/clist","()=>{return (argv)=>{return cwifs.file.read(`/etc/clist`).replaceAll(`\n`,`<br>`)}}")
 cwifs.file.write("/bin/alert","()=>{return (argv)=>{alertstr=''; for (z in argv){z=argv[z]; alertstr+=z;}; alert(alertstr); return '';}}")
+cwifs.file.write("/bin/log","()=>{return (argv)=>{alertstr=''; for (z in argv){z=argv[z]; alertstr+=z;}; console.log(alertstr); return '';}}")
 // load libraries
 lib={
     colors:loadlib("colors")
