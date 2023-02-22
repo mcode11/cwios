@@ -2,7 +2,6 @@
 div#terminal{
     background: rgb(62, 59, 70);
     color:antiquewhite;
-    letter-spacing: 2px;
     font-family: "Space Mono",monospace;
     font-size: 20px;
     width: 100%;
